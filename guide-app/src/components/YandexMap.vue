@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import points from "@/data/points/points.json";
+import { storeToRefs } from 'pinia'
 import { usePointStore } from "@/stores/selectedPoint.ts";
 import type { Point } from "@/types/point.ts";
 import { shallowRef } from 'vue';
@@ -14,15 +15,10 @@ import {
 const map = shallowRef<null | YMap>(null);
 
 const pointStore = usePointStore();
+const { selectedPoint } = storeToRefs(pointStore)
 const activePoint = shallowRef<null | Point>(null);
 
 function selectPoint(point: Point) {
-  if (activePoint.value === point) {
-    activePoint.value = null;
-  } else {
-    activePoint.value = point
-  }
-
   pointStore.setSelectedPoint(point)
 }
 
@@ -52,7 +48,7 @@ function selectPoint(point: Point) {
         }"
     >
       <div
-          :class="{active: point === activePoint}"
+          :class="{active: point.id === selectedPoint?.id}"
           class="sight-seeing-marker"
       >
         <span class="sight-seeing-marker--title">{{point.title}}</span>

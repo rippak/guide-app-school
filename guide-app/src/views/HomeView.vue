@@ -2,6 +2,7 @@
 
 import YandexMap from "@/components/YandexMap.vue";
 import TheWelcome from "@/components/TheWelcome.vue";
+import PointPopup from "@/components/PointPopup.vue";
 </script>
 
 <template>
@@ -13,7 +14,7 @@ import TheWelcome from "@/components/TheWelcome.vue";
       <YandexMap />
     </div>
   </div>
-
+  <PointPopup />
 </template>
 
 <style scoped>
