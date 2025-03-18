@@ -1,9 +1,22 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+
+import YandexMap from "@/components/YandexMap.vue";
+import TheWelcome from "@/components/TheWelcome.vue";
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <div class="map-columns">
+    <div class="map-columns--description">
+      <TheWelcome />
+    </div>
+    <div class="map-columns--map">
+      <YandexMap />
+    </div>
+  </div>
+
 </template>
+
+<style scoped>
+
+
+</style>
